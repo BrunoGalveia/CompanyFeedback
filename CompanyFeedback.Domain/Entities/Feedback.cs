@@ -6,6 +6,7 @@ namespace CompanyFeedback.Domain.Entities
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
+        public int? InterviewId { get; set; }
         public int? SalaryId { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeEnail { get; set; }
@@ -16,6 +17,7 @@ namespace CompanyFeedback.Domain.Entities
 
         // Navigation property
         public Company Company { get; set; }
+        public Interview Interview { get; set; }
         public Salary Salary { get; set; }
 
     }

@@ -14,6 +14,6 @@ namespace CompanyFeedback.Domain.Entities
 
         public DateTime DateReported { get; set; }
         // Navigation property
-        public Company Company { get; set; }
+        public Feedback Feedback { get; set; }
     }
 }
