@@ -1,33 +1,51 @@
 ﻿using CompanyFeedback.Domain.Entities;
 using CompanyFeedback.Domain.Interface.Repos;
+using CompanyFeedback.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyFeedback.Infrastructure.Repos
 {
     public class FeedbackRepository : IFeedbackRepository
     {
-        public void Add(Feedback entity)
+        private ApplicationDbContext _context;
+        private readonly DbSet<Feedback> _feedback;
+
+        public FeedbackRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _feedback = context.Feedbacks;
         }
 
-        public void Delete(int id)
+        public async Task<Feedback?> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _feedback.FindAsync(id);
         }
 
-        public IEnumerable<Feedback> GetAll()
+        public async Task<IEnumerable<Feedback>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _feedback.ToListAsync();
         }
 
-        public Feedback GetById(int id)
+        public async Task<Feedback> Add(Feedback entity)
         {
-            throw new NotImplementedException();
+            await _feedback.AddAsync(entity);
+            return entity; ;
         }
 
-        public void Update(Feedback entity)
+        public Feedback Update(Feedback entity)
         {
-            throw new NotImplementedException();
+            _feedback.Update(entity);
+            return entity;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            var feedback = await GetById(id);
+            if (feedback == null)
+                return false;
+
+            _feedback.Remove(feedback);
+            return true;
         }
     }
 }

@@ -6,8 +6,6 @@ namespace CompanyFeedback.Domain.Interface.Generic
     {
         ICompanyRepository CompanyRepository { get; }
         IFeedbackRepository FeedbackRepository { get; }
-        IInterviewRepository InterviewRepository { get; }
-        ISalaryRepository SalaryRepository { get; }
 
         Task SaveChanges();
         Task Dispose();

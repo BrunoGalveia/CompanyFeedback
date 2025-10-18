@@ -1,33 +1,51 @@
 ﻿using CompanyFeedback.Domain.Entities;
 using CompanyFeedback.Domain.Interface.Repos;
+using CompanyFeedback.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CompanyFeedback.Infrastructure.Repos
 {
     public class CompanyRepository : ICompanyRepository
     {
-        public void Add(Company entity)
+        private ApplicationDbContext _context;
+        private readonly DbSet<Company> _company;
+
+        public CompanyRepository(ApplicationDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _company = context.Companies;
         }
 
-        public void Delete(int id)
+        public async Task<Company?> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await _company.FindAsync(id);
         }
 
-        public IEnumerable<Company> GetAll()
+        public async Task<IEnumerable<Company>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _company.ToListAsync();
         }
 
-        public Company GetById(int id)
+        public async Task<Company> Add(Company entity)
         {
-            throw new NotImplementedException();
+            await _company.AddAsync(entity);
+            return entity; ;
         }
 
-        public void Update(Company entity)
+        public Company Update(Company entity)
         {
-            throw new NotImplementedException();
+            _company.Update(entity);
+           return entity;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            var company = await GetById(id);
+            if (company == null)
+                return false;
+
+            _company.Remove(company);
+            return true;
         }
     }
 }
