@@ -9,7 +9,7 @@ namespace CompanyFeedback.Domain.Entities
         public int? InterviewId { get; set; }
         public int? SalaryId { get; set; }
         public string EmployeeName { get; set; }
-        public string EmployeeEnail { get; set; }
+        public string EmployeeEmail { get; set; }
         public string Comment { get; set; }
         public DateTime Date { get; set; }
         public FeedbackType Type { get; set; }

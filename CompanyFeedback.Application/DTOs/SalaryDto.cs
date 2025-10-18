@@ -1,18 +1,13 @@
 ﻿using CompanyFeedback.Domain.Enums;
 
-namespace CompanyFeedback.Domain.Entities
+namespace CompanyFeedback.Application.DTOs
 {
-    public class Salary
+    public class SalaryDto
     {
-        public int Id { get; set; }
-        public int FeedbackId { get; set; }
         public int BaseAmount { get; set; }
         public int? BonusAmount { get; set; }
         public int? MealAmount { get; set; }
         public Period Period { get; set; }
         public SalaryType Type { get; set; }
-
-        // Navigation property
-        public Feedback Feedback { get; set; }
     }
 }
