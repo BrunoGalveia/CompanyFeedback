@@ -5,9 +5,9 @@ namespace CompanyFeedback.Application.Mapper
 {
     public static class FeedbackToDtoMapper
     {
-        public static FeedbackCreateDto ToCompanyReadDto(this Feedback feedback)
+        public static FeedbackReadDto ToFeedbackReadDto(this Feedback feedback)
         {
-            return new FeedbackCreateDto
+            return new FeedbackReadDto
             {
                 CompanyId = feedback.CompanyId,
                 EmployeeName = feedback.EmployeeName,
