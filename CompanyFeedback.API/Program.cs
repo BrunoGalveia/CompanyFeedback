@@ -19,8 +19,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
-builder.Services.AddScoped<IInterviewRepository, InterviewRepository>();
-builder.Services.AddScoped<ISalaryRepository, SalaryRepository>();
 
 builder.Services.AddScoped(sp =>
 {

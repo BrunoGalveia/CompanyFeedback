@@ -47,5 +47,10 @@ namespace CompanyFeedback.Infrastructure.Repos
             _company.Remove(company);
             return true;
         }
+
+        public async Task<bool> Any(int id)
+        {
+            return await _company.AnyAsync(c => c.Id == id);
+        }
     }
 }

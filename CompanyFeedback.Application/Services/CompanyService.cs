@@ -43,8 +43,7 @@ namespace CompanyFeedback.Application.Services
 
         public async Task<CompanyReadDto> UpdateAsync(CompanyUpdateDto companyDto)
         {
-            var existingCompany = await _companyRepo.GetById(companyDto.Id);
-            if (existingCompany == null)
+            if (!await _companyRepo.Any(companyDto.Id))
                 throw new Exception("Company not found");
 
             var updatedCompany= companyDto.ToCompany();

@@ -13,5 +13,6 @@ namespace CompanyFeedback.Domain.Interface.Repos
         Task<TEntity> Add(TEntity entity);
         TEntity Update(TEntity entity);
         Task<bool> Delete(int id);
+        Task<bool> Any(int id);
     }
 }

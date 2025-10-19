@@ -4,6 +4,7 @@ namespace CompanyFeedback.Application.DTOs
 {
     public class SalaryDto
     {
+        public int Id { get; set; }
         public int BaseAmount { get; set; }
         public int? BonusAmount { get; set; }
         public int? MealAmount { get; set; }

@@ -43,8 +43,7 @@ namespace CompanyFeedback.Application.Services
 
         public async Task<FeedbackReadDto> UpdateAsync(FeedbackUpdateDto feedback)
         {
-            var existingFeedback = await _feedbackRepo.GetById(feedback.Id);
-            if (existingFeedback == null)
+            if (!await _feedbackRepo.Any(feedback.Id))
                 throw new Exception("Feedback not found");
 
             var updatedFeedback= feedback.ToFeedback();

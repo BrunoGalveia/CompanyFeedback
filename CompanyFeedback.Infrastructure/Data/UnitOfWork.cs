@@ -11,17 +11,13 @@ namespace CompanyFeedback.Infrastructure.Data
 
         public ICompanyRepository CompanyRepository { get; }
         public IFeedbackRepository FeedbackRepository { get; }
-        public IInterviewRepository InterviewRepository { get; }
-        public ISalaryRepository SalaryRepository { get; }
 
         public UnitOfWork(ApplicationDbContext context, ICompanyRepository companyRepo, 
-                IFeedbackRepository feedbackRepo, IInterviewRepository interviewRepo, ISalaryRepository salaryRepo)
+                IFeedbackRepository feedbackRepo)
         {
             _context = context;
             CompanyRepository = companyRepo;
             FeedbackRepository = feedbackRepo;
-            InterviewRepository = interviewRepo;
-            SalaryRepository = salaryRepo;
         }
 
         public async Task SaveChanges()

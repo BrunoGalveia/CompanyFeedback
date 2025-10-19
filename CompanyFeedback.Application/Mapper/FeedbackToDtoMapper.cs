@@ -9,6 +9,7 @@ namespace CompanyFeedback.Application.Mapper
         {
             return new FeedbackReadDto
             {
+                Id = feedback.Id,
                 CompanyId = feedback.CompanyId,
                 EmployeeName = feedback.EmployeeName,
                 EmployeeEmail = feedback.EmployeeEmail,
@@ -39,6 +40,7 @@ namespace CompanyFeedback.Application.Mapper
         {
             return new Feedback
             {
+                Id = feedbackDto.Id,
                 EmployeeName = feedbackDto.EmployeeName,
                 EmployeeEmail = feedbackDto.EmployeeEmail,
                 Comment = feedbackDto.Comment,
@@ -55,6 +57,7 @@ namespace CompanyFeedback.Application.Mapper
         {
             return new Interview
             {
+                Id = interviewDto.Id,
                 Type = interviewDto.Type,
                 Duration = interviewDto.Duration,
                 Comment = interviewDto.Comment,
@@ -66,6 +69,7 @@ namespace CompanyFeedback.Application.Mapper
         {
             return new InterviewDto
             {
+                Id = interview.Id,
                 Type = interview.Type,
                 Duration = interview.Duration,
                 Comment = interview.Comment,
@@ -79,6 +83,7 @@ namespace CompanyFeedback.Application.Mapper
         {
             return new Salary
             {
+                Id = salaryDto.Id,
                 BaseAmount = salaryDto.BaseAmount,
                 BonusAmount = salaryDto.BonusAmount,
                 MealAmount = salaryDto.MealAmount,
@@ -91,6 +96,7 @@ namespace CompanyFeedback.Application.Mapper
         {
             return new SalaryDto
             {
+                Id = salary.Id,
                 BaseAmount = salary.BaseAmount,
                 BonusAmount = salary.BonusAmount,
                 MealAmount = salary.MealAmount,
